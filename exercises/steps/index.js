@@ -18,11 +18,16 @@
 //       '####'
 
 function steps(n) {
-    const step = '#';
+    step(1, n);
+}
 
-    for (let i = 1; i <= n; i++) {
-        console.log(step.repeat(i) + ' '.repeat(n - i));
+function step(i, n) {
+    if (i === n + 1) {
+        return;
     }
+
+    console.log('#'.repeat(i) + ' '.repeat(n - i));
+    step(i + 1, n);
 }
 
 module.exports = steps;
