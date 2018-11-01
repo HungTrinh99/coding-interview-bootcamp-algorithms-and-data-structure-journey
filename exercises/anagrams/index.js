@@ -9,30 +9,10 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    let aMap = {};
-    let bMap = {};
-
     stringA.replace(/[^\w]/g, '').toLocaleLowerCase();
     stringB.replace(/[^\w]/g, '').toLocaleLowerCase();
 
-    for (let i = 0; i < stringA.length; i++) {
-        aMap[stringA[i]] = aMap[stringA[i]] + 1 || 1;
-    }
-
-    for (let i = 0; i < stringB.length; i++) {
-        bMap[stringB[i]] = bMap[stringB[i]] + 1 || 1;
-    }
-
-    if (Object.keys(aMap).length !== Object.keys(aMap).length) {
-        return false;
-    }
-
-    for (let i in aMap) {
-        if (!(aMap.hasOwnProperty(i) && bMap.hasOwnProperty(i)) || aMap[i] !== bMap[i]) {
-            return false;
-        }
-    }
-    return true;
+    return stringA.split('').sort().join('') === stringB.split('').sort().join('');
 }
 
 module.exports = anagrams;
