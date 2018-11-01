@@ -14,18 +14,14 @@
 
 function fizzBuzz(n) {
     for (let i = 1; i <= n; i++) {
-        let result = '';
-        if (i % 3 === 0) {
-            result += 'fizz';
-        }
-        if (i % 5 === 0) {
-            result += 'buzz';
-        }
-
-        if (result === '') {
-            console.log(i);
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('fizzbuzz');
+        } else if (i % 3 === 0) {
+            console.log('fizz');
+        } else if (i % 5 === 0) {
+            console.log('buzz');
         } else {
-            console.log(result);
+            console.log(i);
         }
     }
 }
