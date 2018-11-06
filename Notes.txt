@@ -1,0 +1,44 @@
+### Common runtimes
+
+## 1 (Contant time)
+No matter how many element we are looking with, the algorithm/operation/whatever will always take the same amount of time.
+
+## log(n) (Logarithmic time)
+You have this if doubling the number of elements you are iterating over doesn't double the amount of work. Always assume that searching operation are log(n).
+
+## n (Linear time)
+Iterating through all elements in a collection of data. If you see a for loop spanning from '0' ot 'array.length', you probably have 'n', or linear runtime.
+
+## n * log(n) (Quasilinear time)
+You have this if doubling of elements you are iterating over doesn't double the amount of work. Always assume that any sorting operation is n*log(n).
+
+## n ^ 2 (Quadratic time)
+Every element in a collection has to be compared to every other element. 'The handshake problem'.
+
+## 2 ^ n (Exponential time)
+If you add a single element to a collection, the processing power required doubles.
+
+
+
+### Identifying runtime complexity 
+
+- Iterating with a simple for loop through a single collection.
+==> Probably O(n)
+
+- Iterating through a half collection 
+==> Still O(n). There are no constant in runtime.
+
+- Iterating through two different collections with separate for loops
+==> O(n + m)
+
+- Two nested for loops iterating over the same collection.
+==> O(n^2)
+
+- Two nested for loops iterating over different collections.
+==> O(n * m)
+
+- Sorting
+==> O(n * log(n))
+
+- Searcing a sorted array
+==> O(log(n))
