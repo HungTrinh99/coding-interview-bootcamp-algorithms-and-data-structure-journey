@@ -42,3 +42,32 @@ If you add a single element to a collection, the processing power required doubl
 
 - Searcing a sorted array
 ==> O(log(n))
+
+
+
+### Queue functionality in JS Array
+
+Queue           | Array equivalent
+-----------------------------------
+- Add to queue  | array.unshift()
+- Remove from   | array.pop()
+queue           |
+
+
+## Array functions
+
+- shift
+- unshift (queue 'add')
+- push
+- pop (queue 'remove')
+- splice
+- slice
+
+## Queue
+To ...                      | Run this
+----------------------------------------
+- Create a new empty queue  | const q = new Queue();
+- Add a record to a queue   | q.add(1);
+- Remove record at the of   | q.remove();
+a queue                     |
+
