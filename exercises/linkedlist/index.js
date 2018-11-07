@@ -16,8 +16,7 @@ class LinkedList {
     }
 
     insertFirst(data) {
-        this.head = new Node(data, this.head);
-        this.lenght++;
+        this.insertAt(data, 0);
     }
 
     size() {
@@ -25,20 +24,11 @@ class LinkedList {
     }
 
     getFirst() {
-        return this.head;
+        return this.getAt(0);
     }
 
     getLast() {
-        if (!this.head) {
-            return null;
-        }
-
-        let last = this.head;
-        while (last.next) {
-            last = last.next;
-        }
-
-        return last;
+        return this.getAt(this.lenght - 1);
     }
 
     clear() {
@@ -47,42 +37,15 @@ class LinkedList {
     }
 
     removeFirst() {
-        if (!this.head) {
-            return;
-        }
-        this.head = this.head.next;
-        this.lenght--;
+        this.removeAt(0);
     }
 
     removeLast() {
-        if (!this.head) {
-            return;
-        }
-
-        this.lenght--;
-        if (!this.head.next) {
-            this.head = null;
-            return;
-        }
-
-        let previous = this.head;
-        let next = previous.next;
-        while (next.next) {
-            previous = next;
-            next = next.next;
-        }
-        previous.next = null;
+        this.removeAt(this.lenght - 1);
     }
 
     insertLast(data) {
-        this.lenght++;
-
-        const last = this.getLast();
-        if (last) {
-            last.next = new Node(data);
-        } else {
-            this.head = new Node(data);
-        }
+        this.insertAt(data, this.lenght);
     }
 
     getAt(index) {
@@ -110,7 +73,7 @@ class LinkedList {
 
         this.lenght--;
         if (index === 0) {
-            this.removeFirst();
+            this.head = this.head.next;
             return;
         }
 
@@ -127,12 +90,20 @@ class LinkedList {
     insertAt(data, index) {
         this.lenght++;
         if (index === 0) {
-            this.insertFirst(data);
+            this.head = new Node(data, this.head);
             return;
         }
 
         const previous = this.getAt(index - 1) || this.getLast();
         previous.next = new Node(data, previous.next);
+    }
+
+    forEach(fn) {
+        let elem = this.head;
+        let index = 0;
+        while (elem !== null && elem.next) {
+            fn.apply(this, elem, index++);
+        }
     }
 }
 
