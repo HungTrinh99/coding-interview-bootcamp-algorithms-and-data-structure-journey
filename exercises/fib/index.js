@@ -13,16 +13,7 @@ function fib(n) {
         return n;
     }
 
-    let previous = 0;
-    let result = 1;
-
-    for (let i = 2; i <= n; i++) {
-        let temp = result + previous;
-        previous = result;
-        result = temp;
-    }
-
-    return result;
+    return fib(n-1) + fib(n-2);
 }
 
 module.exports = fib;
