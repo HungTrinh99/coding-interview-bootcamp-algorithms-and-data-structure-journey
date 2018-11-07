@@ -16,7 +16,7 @@ You have this if doubling of elements you are iterating over doesn't double the 
 Every element in a collection has to be compared to every other element. 'The handshake problem'.
 
 ## 2 ^ n (Exponential time)
-If you add a single element to a collection, the processing power required doubles.
+If you add a single element to a collection, the processing power required doubles. (Recursive fibonacci)
 
 
 
