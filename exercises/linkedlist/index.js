@@ -101,8 +101,17 @@ class LinkedList {
     forEach(fn) {
         let elem = this.head;
         let index = 0;
-        while (elem !== null && elem.next) {
-            fn.apply(this, elem, index++);
+        while (elem) {
+            fn(elem, index++);
+            elem = elem.next;
+        }
+    }
+
+    *[Symbol.iterator]() {
+        let elem = this.head;
+        while(elem) {
+            yield elem;
+            elem = elem.next;
         }
     }
 }
