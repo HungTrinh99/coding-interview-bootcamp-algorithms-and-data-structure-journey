@@ -12,11 +12,11 @@
 // Answer: [1, 3, 2]
 
 function levelWidth(root) {
-    const counters = [0];
     const separator = 's';
     const arr = [root, separator];
+    const counters = [0];
 
-    while (arr.length) {
+    while (arr.length > 1) {
         const node = arr.shift();
         if (node === separator) {
             arr.push(separator);
